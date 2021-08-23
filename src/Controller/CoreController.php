@@ -13,10 +13,7 @@ class CoreController extends AbstractController
      */
     public function homepage(): Response
     {
-        return new Response("
-            <h1>Hello toi dev Symfony,</h1>
-            <h2>Bienvenue sur Kaherecode!</h2>
-        ");
+        return $this->render('core/index.html.twig');
     }
 
     /**

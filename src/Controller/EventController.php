@@ -13,7 +13,7 @@ class EventController extends AbstractController
      */
     public function show($id): Response
     {
-        return new Response("<h1>Affichage de l'événement {$id}.</h1>");
+        return $this->render('event/show.html.twig', ['event_id' => $id]);
     }
 
     /**

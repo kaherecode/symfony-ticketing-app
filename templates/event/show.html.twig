@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Evènement
+	{{ event_id }}
+	|
+	{{ parent() }}
+{% endblock %}
+
+{% block content %}
+	<div class="hero p-4">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-lg-6">
+					<img src="https://images.pexels.com/photos/3810762/pexels-photo-3810762.jpeg?cs=srgb&dl=pexels-rfstudio-3810762.jpg&fm=jpg" alt="" class="img-fluid">
+				</div>
+				<div class="col-sm-12 col-lg-6 mt-3">
+					<h2>Titre de l'événement</h2>
+					<p class="card-text text-muted">
+						Le 25 Août 2021 à 10h 00mn
+						<br>
+						Sacré Coeur 3, Dakar
+					</p>
+					<p class="lead">
+						Lorem ipsum dolor sit amet consectetur adipisicing, elit. Libero tenetur beatae repellendus possimus magni quae! Impedit soluta sit iusto amet unde repudiandae fugit perspiciatis, deleniti quod placeat. Unde, officiis recusandae! Lorem ipsum, dolor, sit amet consectetur adipisicing elit.
+					</p>
+					<a href="#" class="btn btn-primary">Réserver</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

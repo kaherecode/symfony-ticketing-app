@@ -1,20 +1,68 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CoreController!{% endblock %}
+{% block title %}Accueil |
+	{{ parent() }}
+{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block content %}
+	<div class="container mt-4">
+		<div class="row">
+			<div class="col">
+				<h2 class="text-center">Événements à venir</h2>
+			</div>
+		</div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/orion/Documents/kaherecode/symfony-ticketing-app/src/Controller/CoreController.php'|file_link(0) }}">src/Controller/CoreController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/orion/Documents/kaherecode/symfony-ticketing-app/templates/core/index.html.twig'|file_link(0) }}">templates/core/index.html.twig</a></code></li>
-    </ul>
-</div>
+		<div class="row">
+			<div class="d-flex flex-row flex-wrap">
+				<div class="card m-2" style="width: 16rem;">
+					<img class="card-img-top" src="https://images.pexels.com/photos/3810762/pexels-photo-3810762.jpeg?cs=srgb&dl=pexels-rfstudio-3810762.jpg&fm=jpg" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Titre de l'événement</h5>
+						<p class="card-text text-muted">
+							Le 25 Août 2021 à 10h 00mn
+							<br>
+							Sacré Coeur 3, Dakar
+						</p>
+						<a href="{{ path('show_event', {'id': 5}) }}" class="btn btn-primary">Réserver</a>
+					</div>
+				</div>
+				<div class="card m-2" style="width: 16rem;">
+					<img class="card-img-top" src="https://images.pexels.com/photos/3810762/pexels-photo-3810762.jpeg?cs=srgb&dl=pexels-rfstudio-3810762.jpg&fm=jpg" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Titre de l'événement</h5>
+						<p class="card-text text-muted">
+							Le 25 Août 2021 à 10h 00mn
+							<br>
+							Sacré Coeur 3, Dakar
+						</p>
+						<a href="{{ path('show_event', {'id': 5}) }}" class="btn btn-primary">Réserver</a>
+					</div>
+				</div>
+				<div class="card m-2" style="width: 16rem;">
+					<img class="card-img-top" src="https://images.pexels.com/photos/3810762/pexels-photo-3810762.jpeg?cs=srgb&dl=pexels-rfstudio-3810762.jpg&fm=jpg" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Titre de l'événement</h5>
+						<p class="card-text text-muted">
+							Le 25 Août 2021 à 10h 00mn
+							<br>
+							Sacré Coeur 3, Dakar
+						</p>
+						<a href="{{ path('show_event', {'id': 5}) }}" class="btn btn-primary">Réserver</a>
+					</div>
+				</div>
+				<div class="card m-2" style="width: 16rem;">
+					<img class="card-img-top" src="https://images.pexels.com/photos/3810762/pexels-photo-3810762.jpeg?cs=srgb&dl=pexels-rfstudio-3810762.jpg&fm=jpg" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Titre de l'événement</h5>
+						<p class="card-text text-muted">
+							Le 25 Août 2021 à 10h 00mn
+							<br>
+							Sacré Coeur 3, Dakar
+						</p>
+						<a href="{{ path('show_event', {'id': 5}) }}" class="btn btn-primary">Réserver</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
