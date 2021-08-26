@@ -1,3 +1,5 @@
+{# templates/core/index.html.twig #}
+
 {% extends 'base.html.twig' %}
 
 {% block title %}Accueil |
@@ -14,54 +16,21 @@
 
 		<div class="row">
 			<div class="d-flex flex-row flex-wrap">
-				<div class="card m-2" style="width: 16rem;">
-					<img class="card-img-top" src="https://images.pexels.com/photos/3810762/pexels-photo-3810762.jpeg?cs=srgb&dl=pexels-rfstudio-3810762.jpg&fm=jpg" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Titre de l'événement</h5>
-						<p class="card-text text-muted">
-							Le 25 Août 2021 à 10h 00mn
-							<br>
-							Sacré Coeur 3, Dakar
-						</p>
-						<a href="{{ path('show_event', {'id': 5}) }}" class="btn btn-primary">Réserver</a>
+				{% for event in events %}
+					<div class="card m-2" style="width: 16rem;">
+						<img class="card-img-top" src="{{ event.picture }}" alt="{{ event.title }}">
+						<div class="card-body">
+							<h5 class="card-title">{{ event.title }}</h5>
+							<p class="card-text text-muted">
+								Le
+								{{ event.eventDate|date('d/m/Y') }}
+								<br>
+								{{ event.address }}
+							</p>
+							<a href="{{ path('show_event', {'id': event.id}) }}" class="btn btn-primary">Réserver</a>
+						</div>
 					</div>
-				</div>
-				<div class="card m-2" style="width: 16rem;">
-					<img class="card-img-top" src="https://images.pexels.com/photos/3810762/pexels-photo-3810762.jpeg?cs=srgb&dl=pexels-rfstudio-3810762.jpg&fm=jpg" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Titre de l'événement</h5>
-						<p class="card-text text-muted">
-							Le 25 Août 2021 à 10h 00mn
-							<br>
-							Sacré Coeur 3, Dakar
-						</p>
-						<a href="{{ path('show_event', {'id': 5}) }}" class="btn btn-primary">Réserver</a>
-					</div>
-				</div>
-				<div class="card m-2" style="width: 16rem;">
-					<img class="card-img-top" src="https://images.pexels.com/photos/3810762/pexels-photo-3810762.jpeg?cs=srgb&dl=pexels-rfstudio-3810762.jpg&fm=jpg" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Titre de l'événement</h5>
-						<p class="card-text text-muted">
-							Le 25 Août 2021 à 10h 00mn
-							<br>
-							Sacré Coeur 3, Dakar
-						</p>
-						<a href="{{ path('show_event', {'id': 5}) }}" class="btn btn-primary">Réserver</a>
-					</div>
-				</div>
-				<div class="card m-2" style="width: 16rem;">
-					<img class="card-img-top" src="https://images.pexels.com/photos/3810762/pexels-photo-3810762.jpeg?cs=srgb&dl=pexels-rfstudio-3810762.jpg&fm=jpg" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Titre de l'événement</h5>
-						<p class="card-text text-muted">
-							Le 25 Août 2021 à 10h 00mn
-							<br>
-							Sacré Coeur 3, Dakar
-						</p>
-						<a href="{{ path('show_event', {'id': 5}) }}" class="btn btn-primary">Réserver</a>
-					</div>
-				</div>
+				{% endfor %}
 			</div>
 		</div>
 	</div>
