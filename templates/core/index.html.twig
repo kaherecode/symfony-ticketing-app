@@ -23,7 +23,7 @@
 							<h5 class="card-title">{{ event.title }}</h5>
 							<p class="card-text text-muted">
 								Le
-								{{ event.eventDate|date('d/m/Y') }}
+								{{ event.eventDate|format_datetime('medium', 'short', locale='fr') }}
 								<br>
 								{{ event.address }}
 							</p>
