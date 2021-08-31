@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Event;
 use App\Entity\Tag;
-use DateInterval;
 use DateTime;
 use DateTimeImmutable;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,9 +15,9 @@ class EventController extends AbstractController
     /**
      * @Route("/events/{id}", name="show_event", requirements={"id"="\d+"})
      */
-    public function show($id): Response
+    public function show(Event $event): Response
     {
-        return $this->render('event/show.html.twig', ['event_id' => $id]);
+        return $this->render('event/show.html.twig', ['event' => $event]);
     }
 
     /**

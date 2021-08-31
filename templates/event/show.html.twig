@@ -1,7 +1,9 @@
+{# templates/event/show.html.twig #}
+
 {% extends 'base.html.twig' %}
 
-{% block title %}Evènement
-	{{ event_id }}
+{% block title %}
+	{{ event.title }}
 	|
 	{{ parent() }}
 {% endblock %}
@@ -11,17 +13,18 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-lg-6">
-					<img src="https://images.pexels.com/photos/3810762/pexels-photo-3810762.jpeg?cs=srgb&dl=pexels-rfstudio-3810762.jpg&fm=jpg" alt="" class="img-fluid">
+					<img src="{{ event.picture }}" alt="" class="img-fluid">
 				</div>
 				<div class="col-sm-12 col-lg-6 mt-3">
-					<h2>Titre de l'événement</h2>
+					<h2>{{ event.title }}</h2>
 					<p class="card-text text-muted">
-						Le 25 Août 2021 à 10h 00mn
+						Le
+						{{ event.eventDate|format_datetime('medium', 'short', locale='fr') }}
 						<br>
-						Sacré Coeur 3, Dakar
+						{{ event.address }}
 					</p>
 					<p class="lead">
-						Lorem ipsum dolor sit amet consectetur adipisicing, elit. Libero tenetur beatae repellendus possimus magni quae! Impedit soluta sit iusto amet unde repudiandae fugit perspiciatis, deleniti quod placeat. Unde, officiis recusandae! Lorem ipsum, dolor, sit amet consectetur adipisicing elit.
+						{{ event.description }}
 					</p>
 					<a href="#" class="btn btn-primary">Réserver</a>
 				</div>
