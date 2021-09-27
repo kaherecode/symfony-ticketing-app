@@ -6,6 +6,7 @@ use App\Entity\Event;
 use App\Entity\Tag;
 use DateTime;
 use DateTimeImmutable;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -72,6 +73,36 @@ class EventController extends AbstractController
             "Les événements {$event->getTitle()} et {$event2->getTitle()}
                 ont bien été enregistrés."
         );
+    }
+
+    /**
+     * @Route("/events/{id}/update", name="update_event")
+     */
+    public function update(
+        Event $event,
+        EntityManagerInterface $entityManager
+    ): Response {
+        // grâce au ParamConverter, nous avons automatiquement accès à l'objet $event
+        $event->setTitle("À la découverte du Web 2.0");
+        $event->setEventDate((new \DateTime('+14 days'))->setTime(15, 30));
+
+        $entityManager->flush();
+
+        return new Response("L'événement à bien été modifier.");
+    }
+
+    /**
+     * @Route("/events/{id}/delete", name="delete_event")
+     */
+    public function delete(
+        Event $event,
+        EntityManagerInterface $entityManager
+    ): Response {
+        // grâce au ParamConverter, nous avons automatiquement accès à l'objet $event
+        $entityManager->remove($event); // on utilise la method remove de l'entity manager
+        $entityManager->flush();
+
+        return new Response("L'événement {$event->getId()} à bien été supprimer.");
     }
 
     /**
